@@ -1,0 +1,144 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+
+#tishi {
+  position: fixed;
+  width: 40%;
+  line-height: 45px;
+  font-size: 1.2em;
+  color: white;
+  background-color: rgba(250, 87, 87, 0.9);
+  text-align: center;
+  top: 40px;
+  border-radius: 20px;
+  left: 30%;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.rotate{
+  animation:fadenum 0.5s infinite;
+}
+
+@keyframes fadenum{
+  10%{transform:rotate(36deg);}
+  20%{transform:rotate(72deg);}
+  30%{transform:rotate(108deg);}
+  40%{transform:rotate(144deg);}
+  50%{transform:rotate(180deg);}
+  60%{transform:rotate(216deg);}
+  70%{transform:rotate(252deg);}
+  80%{transform:rotate(288deg);}
+  90%{transform:rotate(324deg);}
+  100%{transform:rotate(360deg);}
+}
+
+
+
+
+body{
+  height: 100vh;
+  background-color: #e7e7e73b;
+}
+.title{
+  width: 100%;
+  margin: 0px auto;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0px 0px 10px 1px #cfcfcf;
+}
+
+.title button{
+  width: 120px;
+  border: 0px;
+  background-color: rgb(18, 176, 144);
+  color: white;
+  font-size: 0.8em;
+  border-radius: 20px;
+  height: 30px;
+}
+
+.content{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  height: calc(100vh - 45px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+.items{
+  border-radius: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 0px 1px #cfcfcf;
+  margin-top: 10px;
+  padding: 5px;
+  width: 160px;
+  height: 240px;
+  background-color:white;
+}
+.item-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+.imgDiv{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 128px;
+}
+.font-number{
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  color: #5d5d5db3;
+  display: block;
+  font-size: 2em;
+}
+
+.bed{
+  padding: 5px;
+  width: 80%;
+  height: 260px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 0px 1px #cfcfcf;
+  background-color:white;
+  margin-top: 10px;
+}
+
+
+
+#btnFan, #btnMusic,#btnBed{
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  width: 100px;
+  line-height: 45px;
+  margin: 0px auto;
+  margin-top: 5px;
+}
+.off{
+  background-color: rgb(18, 176, 144);
+
+}
+.no{
+  background-color: rgb(246, 125, 125);
+}

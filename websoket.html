@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="but">连接</button>
+  <p></p>
+  <p></p>
+  <p></p>
+  <input id="in1" type="text">
+  <button onclick="sub()" type="text">发送</button>
+</body>
+<script>
+  let ws = {}
+  function sub(){
+    let in1 = document.getElementById('in1').value
+    ws.send(in1)
+  }
+  document.getElementById('but').onclick = function (){
+    const token = "5e68a46f7a0547a18a8a454cffdee574"
+    //wss://cloud.alientek.com/session/016e39867b1846f5bb1a496b09fdea08/org/1352/connection/14424?token=6d504395-bc1e-5a0b-6cc9-7a60c00c7ad5
+    let url = `wss://cloud.alientek.com/session/${token}/org/1352/connection/14424?token=${token}`
+    ws = new WebSocket(url)
+    ws.onopen = function(e){
+      console.log("连接成功！");
+    }
+    ws.onmessage =  function (event) {
+      let rd = new FileReader();
+      rd.readAsText(event.data,"gb2312")
+      rd.onload = function(){
+        let msg = rd.result
+        msg = msg.replace(/\r\n/g,'');
+        let data = msg.split(",")
+        let ob = {}
+        for(let i of data){
+          let mid = i.split(":")
+          ob[mid[0]]=mid[1];
+        }
+        if(ob["Temperature"])
+          appendMsg(ob);
+        }
+      }
+        }
+    function appendMsg(txt){
+      let ps = document.getElementsByTagName("p");
+      ps[0].innerText = `温度：${txt["Temperature"]}`
+      ps[1].innerText = `湿度：${txt["Humidity"]}`
+      ps[2].innerText = `角度：${txt["Angle"]}`
+    }
+</script>
+</html>
